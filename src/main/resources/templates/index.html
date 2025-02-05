@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 th:text="${mensaje} +', '+${usuario}"></h1>
+        <p th:text="mensajex"></p>
+        <br/>
+        Nombres: <span th:text="${persona.nombre} + ' ' + ${persona.apellidos}">-</span>
+        <br/>
+        Fec. Nac: <span th:text="${#temporals.format(persona.fecNacimiento, 'dd-MM-yyyy')}">-</span>
+        <br/>
+        <p>Lista de Notas:</p>
+        <div th:if="${lstNotas != null and !lstNotas.empty}">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr th:each="nota : ${lstNotas}">
+                    <td th:text="${nota.id}">Id</td>
+                    <td th:text="${nota.nombre}">Nombre</td>
+                    <td th:text="${nota.descripcion}">Descripción</td>
+                </tr>
+            </table>
+        </div>
+        <div th:unless="${lstNotas != null and !lstNotas.empty}">No se encontraron elementos</div>
+    </body>
+</html>

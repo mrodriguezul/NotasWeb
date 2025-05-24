@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1 th:text="${usuario}"></h1>
+<div th:if="${premium}">
+    <img src="https://png.pngtree.com/png-vector/20220813/ourmid/pngtree-gold-premium-badge-png-png-image_6108902.png" width="50" height="50" />
+</div>
+
+<br/>
+
+<p>Lista Categorías:</p>
+<div th:if="${lstCategorias != null and !lstCategorias.empty}">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        <tr th:each="categoria : ${lstCategorias}">
+            <td th:text="${categoria.idCategoria}">Id</td>
+            <td th:text="${categoria.nombre}">Nombre</td>
+        </tr>
+    </table>
+</div>
+<div th:unless="${lstCategorias != null and !lstCategorias.empty}">No se encontraron elementos</div>
+</body>
+</html>

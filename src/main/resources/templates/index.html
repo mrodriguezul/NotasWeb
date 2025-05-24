@@ -6,6 +6,9 @@
     </head>
     <body>
         <h1 th:text="${mensaje} +', '+${usuario}"></h1>
+        <div th:if="${premium}">
+            <img src="https://png.pngtree.com/png-vector/20220813/ourmid/pngtree-gold-premium-badge-png-png-image_6108902.png" width="50" height="50" />
+        </div>
         <p th:text="mensajex"></p>
         <br/>
         Nombres: <span th:text="${persona.nombre} + ' ' + ${persona.apellidos}">-</span>

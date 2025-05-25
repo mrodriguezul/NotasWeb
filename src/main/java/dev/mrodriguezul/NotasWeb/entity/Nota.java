@@ -1,5 +1,7 @@
 package dev.mrodriguezul.NotasWeb.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,7 +16,9 @@ public class Nota implements Serializable {
     private String titulo;
     private String descripcion;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNota;
+    @OneToOne
     private Categoria categoria;
 
     public int getIdNota() {

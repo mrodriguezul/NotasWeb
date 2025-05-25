@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "notas")
@@ -20,6 +21,8 @@ public class Nota implements Serializable {
     private Date fechaNota;
     @OneToOne
     private Categoria categoria;
+    @ManyToMany
+    private List<Etiqueta> lstEtiquetas;
 
     public int getIdNota() {
         return idNota;
@@ -59,5 +62,13 @@ public class Nota implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<Etiqueta> getLstEtiquetas() {
+        return lstEtiquetas;
+    }
+
+    public void setLstEtiquetas(List<Etiqueta> lstEtiquetas) {
+        this.lstEtiquetas = lstEtiquetas;
     }
 }
